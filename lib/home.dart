@@ -7,6 +7,7 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('SMKN 4 KOTA BOGOR'),
+        centerTitle: true,
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -24,7 +25,7 @@ class HomeScreen extends StatelessWidget {
             ),
             SizedBox(height: 20),
             Text(
-              'Kami siap membantu Anda menemukan informasi terkini tentang sekolah.',
+              'Kami siap membantu Anda menemukan informasi terkini tentang SMKN 4 Kota Bogor.',
               style: TextStyle(fontSize: 16),
               textAlign: TextAlign.center,
             ),

@@ -67,49 +67,85 @@ class _LoginScreenState extends State<LoginScreen> {
       appBar: AppBar(
         title: Text('User Login'),
         backgroundColor: Color.fromARGB(255, 107, 168, 247), // Warna biru
+        centerTitle: true, // Menempatkan judul di tengah
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            TextField(
-              controller: _usernameController,
-              decoration: InputDecoration(
-                labelText: 'Username',
-                border: OutlineInputBorder(),
-              ),
-            ),
-            SizedBox(height: 16),
-            TextField(
-              controller: _passwordController,
-              decoration: InputDecoration(
-                labelText: 'Password',
-                border: OutlineInputBorder(),
-              ),
-              obscureText: true,
-            ),
-            SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: loginUser,
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Color.fromARGB(255, 107, 168, 247), // Warna biru
-                padding: EdgeInsets.symmetric(horizontal: 32, vertical: 12),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(30),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(24.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              // Logo atau icon di atas form login
+              CircleAvatar(
+                radius: 50,
+                backgroundColor: Colors.blueAccent,
+                child: Icon(
+                  Icons.person,
+                  size: 60,
+                  color: Colors.white,
                 ),
               ),
-              child: Text('Login'),
+              SizedBox(height: 30),
+              Center(
+              child: Text(
+              'STUDENT APP SMKN 4 BOGOR',
+              style: TextStyle(
+              fontSize: 24,
+              fontWeight: FontWeight.bold,
+              color: Colors.blueAccent,
+              ),
             ),
-            if (_errorMessage.isNotEmpty)
-              Padding(
-                padding: const EdgeInsets.all(8.0),
+        ),
+
+
+              SizedBox(height: 30),
+              TextField(
+                controller: _usernameController,
+                decoration: InputDecoration(
+                  labelText: 'Username',
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                  prefixIcon: Icon(Icons.person),
+                ),
+              ),
+              SizedBox(height: 16),
+              TextField(
+                controller: _passwordController,
+                decoration: InputDecoration(
+                  labelText: 'Password',
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                  prefixIcon: Icon(Icons.lock),
+                ),
+                obscureText: true,
+              ),
+              SizedBox(height: 20),
+              ElevatedButton(
+                onPressed: loginUser,
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Color.fromARGB(255, 107, 168, 247), // Warna biru
+                  padding: EdgeInsets.symmetric(horizontal: 40, vertical: 15),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(30),
+                  ),
+                ),
                 child: Text(
-                  _errorMessage,
-                  style: TextStyle(color: Colors.red),
+                  'Login',
+                  style: TextStyle(fontSize: 18),
                 ),
               ),
-          ],
+              if (_errorMessage.isNotEmpty)
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    _errorMessage,
+                    style: TextStyle(color: Colors.red),
+                  ),
+                ),
+            ],
+          ),
         ),
       ),
     );
